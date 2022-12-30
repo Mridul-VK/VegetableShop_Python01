@@ -9,7 +9,7 @@ def list_fetcher(check_list, parameter, value):
             reqd_item = item
     return reqd_item
 
-def get_products():
+def get_data():
     '''a file is being read and returned'''
     file = None
     if file is None:
@@ -28,7 +28,7 @@ def get_products():
 
 def get_product(param_id=None, name=None):
     '''fetching a particular product'''
-    products = get_products()['products']
+    products = get_data()['products']
     if param_id is not None:
         product = list_fetcher(products, 'product_id', param_id)
         return product
