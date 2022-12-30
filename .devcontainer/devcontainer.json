@@ -9,7 +9,8 @@
 			"extensions": [
 				"ms-python.python",
 				"aaronthomas.vscode-snazzy-operator",
-				"esbenp.prettier-vscode"
+				"esbenp.prettier-vscode",
+				"PKief.material-icon-theme"
 			],
 			"settings": {
 				"editor.fontFamily": "Victor Mono SemiBold",
