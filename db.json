@@ -1,0 +1,96 @@
+{
+    "products": [
+        {
+            "product_id": 1,
+            "product_name": "potato",
+            "price_per_unit": 37,
+            "unit_id": 2
+        },
+        {
+            "product_id": 2,
+            "product_name": "onion",
+            "price_per_unit": 33,
+            "unit_id": 2
+        },
+        {
+            "product_id": 3,
+            "product_name": "tomato",
+            "price_per_unit": 24,
+            "unit_id": 2
+        },
+        {
+            "product_id": 4,
+            "product_name": "beans",
+            "price_per_unit": 60,
+            "unit_id": 2
+        },
+        {
+            "product_id": 5,
+            "product_name": "ivy gourd",
+            "price_per_unit": 45,
+            "unit_id": 2
+        },
+        {
+            "product_id": 6,
+            "product_name": "lady finger",
+            "price_per_unit": 18,
+            "unit_id": 2
+        },
+        {
+            "product_id": 7,
+            "product_name": "brinjal",
+            "price_per_unit": 35,
+            "unit_id": 2
+        },
+        {
+            "product_id": 8,
+            "product_name": "indian gooseberry",
+            "price_per_unit": 60,
+            "unit_id": 2
+        },
+        {
+            "product_id": 9,
+            "product_name": "beetroot",
+            "price_per_unit": 40,
+            "unit_id": 2
+        },
+        {
+            "product_id": 10,
+            "product_name": "coconut",
+            "price_per_unit": 38,
+            "unit_id": 2
+        },
+        {
+            "product_id": 11,
+            "product_name": "orange",
+            "price_per_unit": 70,
+            "unit_id": 2
+        },
+        {
+            "product_id": 12,
+            "product_name": "zaminkand",
+            "price_per_unit": 38,
+            "unit_id": 2
+        },
+        {
+            "product_id": 13,
+            "product_name": "banana",
+            "price_per_unit": 60,
+            "unit_id": 3
+        }
+    ],
+    "units": [
+        {
+            "unit_id": 1,
+            "unit_name": "unit"
+        },
+        {
+            "unit_id": 2,
+            "unit_name": "kg"
+        },
+        {
+            "unit_id": 3,
+            "unit_name": "dozen"
+        }
+    ]
+}
