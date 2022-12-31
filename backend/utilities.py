@@ -6,6 +6,8 @@ import ast
 # ========================================================
 # Helper default functions
 # ========================================================
+
+
 def array_find(array, parameter, value):
     '''returns object based on its property'''
     reqd_item = None
@@ -20,7 +22,6 @@ def array_filter(array, parameter, value):
     reqd_array = []
     for item in array:
         if item[parameter] != value:
-            item['product_id'] = array.index(item) + 1
             reqd_array.append(item)
 
     return reqd_array
@@ -29,12 +30,19 @@ def array_filter(array, parameter, value):
 # Helper sub-functions
 # ========================================================
 
+
 def get_data():
     '''a file is being read and returned'''
     file = None
     if file is None:
-        with open(os.path.abspath('backend/db.json'), encoding='utf-8') as json_file:
-            file = json.load(json_file)
+        try:
+            with open(os.path.abspath('backend/db.json'), encoding='utf-8') as json_file:
+                file = json.load(json_file)
+        except FileNotFoundError:
+            with open(os.path.abspath('backend/db.json'), 'w', encoding='utf-8') as json_file:
+                json.dump({'products': [], 'units': []}, json_file, indent=2)
+            with open(os.path.abspath('backend/db.json'), encoding='utf-8') as json_file:
+                file = json.load(json_file)
 
     products = file['products']
     units = file['units']
@@ -82,6 +90,7 @@ def get_product(product_id):
 
     return 'Product not found!'
 
+
 def add_product(product):
     '''adds product to products list'''
     product_name = product['product_name']
@@ -94,9 +103,33 @@ def add_product(product):
     products = get_all_products()
     product['product_id'] = len(products) + 1
 
+    product_exist = array_find(products, 'product_name', product_name)
+    if product_exist is not None:
+        return 'Product already exists. Please use edit method to edit the product!'
+
     products.append(product)
     save_product(products)
     return 'Product added successfully'
+
+
+def add_units(unit_name):
+    '''adds new unit system to db'''
+    if not unit_name:
+        return 'unit_name is required'
+
+    data = get_data()
+    new_unit = {
+        'unit_id': len(data['units']) + 1,
+        'unit_name': unit_name
+    }
+
+    data['units'].append(new_unit)
+
+    with open(os.path.abspath('backend/db.json'), 'w', encoding='utf-8') as file:
+        json.dump(data, file, indent=2)
+
+    return 'New unit added successfully'
+
 
 def edit_product(product_id, update_data, stock_type='inc'):
     '''edits product from db'''
@@ -138,7 +171,26 @@ def edit_product(product_id, update_data, stock_type='inc'):
     save_product(products)
     return 'Product was edited successfully!'
 
+
+def delete_product(product_id):
+    '''deletes product from db'''
+    if not product_id or not isinstance(product_id, int):
+        return 'product_id is a required parameter'
+
+    products = get_all_products()
+    if product_id > len(products):
+        return 'Product not found!'
+
+    products = array_filter(products, 'product_id', product_id)
+
+    for index, item in enumerate(products, 1):
+        item['product_id'] = index
+
+    save_product(products)
+
+    return 'Product was successfully removed from the inventory!'
+
+
 if __name__ == '__main__':
-    # print(get_product(product_name='onion'))
-    RESULT = edit_product( 14, {'stock':50}, 'exact')
+    RESULT = get_data()
     print(RESULT)
