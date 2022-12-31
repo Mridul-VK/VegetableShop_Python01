@@ -5,112 +5,98 @@
       "product_id": 1,
       "product_name": "potato",
       "stock": 50,
-      "unit_id": 2,
-      "unit_name": "kg"
+      "unit_id": 2
     },
     {
       "price_per_unit": 33,
       "product_id": 2,
       "product_name": "onion",
       "stock": 50,
-      "unit_id": 2,
-      "unit_name": "kg"
+      "unit_id": 2
     },
     {
       "price_per_unit": 24,
       "product_id": 3,
       "product_name": "tomato",
       "stock": 50,
-      "unit_id": 2,
-      "unit_name": "kg"
+      "unit_id": 2
     },
     {
       "price_per_unit": 60,
       "product_id": 4,
       "product_name": "beans",
       "stock": 50,
-      "unit_id": 2,
-      "unit_name": "kg"
+      "unit_id": 2
     },
     {
       "price_per_unit": 45,
       "product_id": 5,
       "product_name": "ivygourd",
       "stock": 50,
-      "unit_id": 2,
-      "unit_name": "kg"
+      "unit_id": 2
     },
     {
       "price_per_unit": 18,
       "product_id": 6,
       "product_name": "ladyfinger",
       "stock": 50,
-      "unit_id": 2,
-      "unit_name": "kg"
+      "unit_id": 2
     },
     {
       "price_per_unit": 35,
       "product_id": 7,
       "product_name": "brinjal",
       "stock": 50,
-      "unit_id": 2,
-      "unit_name": "kg"
+      "unit_id": 2
     },
     {
       "price_per_unit": 60,
       "product_id": 8,
       "product_name": "indiangooseberry",
       "stock": 50,
-      "unit_id": 2,
-      "unit_name": "kg"
+      "unit_id": 2
     },
     {
       "price_per_unit": 40,
       "product_id": 9,
       "product_name": "beetroot",
       "stock": 50,
-      "unit_id": 2,
-      "unit_name": "kg"
+      "unit_id": 2
     },
     {
       "price_per_unit": 38,
       "product_id": 10,
       "product_name": "coconut",
       "stock": 50,
-      "unit_id": 2,
-      "unit_name": "kg"
+      "unit_id": 2
     },
     {
       "price_per_unit": 70,
       "product_id": 11,
       "product_name": "orange",
       "stock": 50,
-      "unit_id": 2,
-      "unit_name": "kg"
+      "unit_id": 2
     },
     {
       "price_per_unit": 38,
       "product_id": 12,
       "product_name": "zaminkand",
       "stock": 50,
-      "unit_id": 2,
-      "unit_name": "kg"
+      "unit_id": 2
     },
     {
       "price_per_unit": 60,
       "product_id": 13,
       "product_name": "banana",
       "stock": 50,
-      "unit_id": 3,
-      "unit_name": "dozen"
+      "unit_id": 3
     },
     {
       "price_per_unit": 30,
       "product_id": 14,
       "product_name": "pumpkin",
       "stock": 50,
-      "unit_id": 2,
-      "unit_name": "kg"
+      "unit_id": 2
     }
   ],
   "units": [

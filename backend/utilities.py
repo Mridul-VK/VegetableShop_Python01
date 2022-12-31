@@ -48,6 +48,10 @@ def get_data():
 
 def save_product(products):
     '''adds products to db'''
+    for item in products:
+        if 'unit_name' in item:
+            del item['unit_name']
+
     data = get_data()
 
     data['products'] = products
@@ -89,10 +93,6 @@ def add_product(product):
 
     products = get_all_products()
     product['product_id'] = len(products) + 1
-
-    for item in products:
-        if item['unit_name']:
-            del item['unit_name']
 
     products.append(product)
     save_product(products)
@@ -140,5 +140,5 @@ def edit_product(product_id, update_data, stock_type='inc'):
 
 if __name__ == '__main__':
     # print(get_product(product_name='onion'))
-    RESULT = edit_product( 14, {'stock':5}, 'inc')
+    RESULT = edit_product( 14, {'stock':50}, 'exact')
     print(RESULT)
