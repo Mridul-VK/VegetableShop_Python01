@@ -13,10 +13,13 @@
 				"PKief.material-icon-theme"
 			],
 			"settings": {
+				"workbench.colorTheme": "Snazzy Operator",
 				"editor.fontFamily": "Victor Mono SemiBold",
 				"editor.renderWhitespace": "all",
 				"editor.mouseWheelZoom": true,
-				"editor.fontLigatures": true
+				"editor.fontLigatures": true,
+				"editor.lineHeight": 2.5,
+				"editor.minimap.enabled": false
 			}
 		}
 	}
