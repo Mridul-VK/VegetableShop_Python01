@@ -1,84 +1,18 @@
 '''a file with utility functions'''
 import json
 import os
-import ast
-
-# ========================================================
-# Helper default functions
-# ========================================================
-
-
-def array_find(array, parameter, value):
-    '''returns object based on its property'''
-    reqd_item = None
-    for item in array:
-        if item[parameter] == value:
-            reqd_item = item
-    return reqd_item
-
-
-def array_filter(array, parameter, value):
-    '''filters a given array'''
-    reqd_array = []
-    for item in array:
-        if item[parameter] != value:
-            reqd_array.append(item)
-
-    return reqd_array
-
-# ========================================================
-# Helper sub-functions
-# ========================================================
-
-
-def get_data():
-    '''a file is being read and returned'''
-    file = None
-    if file is None:
-        try:
-            with open(os.path.abspath('backend/db.json'), encoding='utf-8') as json_file:
-                file = json.load(json_file)
-        except FileNotFoundError:
-            with open(os.path.abspath('backend/db.json'), 'w', encoding='utf-8') as json_file:
-                json.dump({'products': [], 'units': []}, json_file, indent=2)
-            with open(os.path.abspath('backend/db.json'), encoding='utf-8') as json_file:
-                file = json.load(json_file)
-
-    products = file['products']
-    units = file['units']
-    for product in products:
-        product_unit = product['unit_id']
-        unit = array_find(units, 'unit_id', product_unit)
-        product['unit_name'] = unit['unit_name']
-
-    return file
-
-
-def save_product(products):
-    '''adds products to db'''
-    for item in products:
-        if 'unit_name' in item:
-            del item['unit_name']
-
-    data = get_data()
-
-    data['products'] = products
-
-    stringified = json.dumps(data['products'], sort_keys=True)
-    data['products'] = ast.literal_eval(stringified)
-
-    with open(os.path.abspath('backend/db.json'), 'w', encoding='utf-8') as file:
-        json.dump(data, file, indent=2)
-
-
-# ========================================================
-# Export functions
-# ========================================================
+from subfunctions import get_data, save_product
+from general_utility_func import array_find, array_filter
 
 def get_all_products():
     '''fetches all products in db'''
     data = get_data()
     return data['products']
+
+def get_units():
+    '''fetches list of all the units in db'''
+    data = get_data()
+    return data['units']
 
 
 def get_product(product_id):
@@ -93,10 +27,7 @@ def get_product(product_id):
 
 def add_product(product):
     '''adds product to products list'''
-    product_name = product['product_name']
-    price_per_unit = product['price_per_unit']
-    stock = product['stock']
-    unit_id = product['unit_id']
+    product_name, stock, price_per_unit, unit_id = product
     if not product_name or not price_per_unit or not stock or not unit_id:
         return 'product_name, price_per_unit, stock and unit_id are required properties of product!'
 
@@ -189,8 +120,3 @@ def delete_product(product_id):
     save_product(products)
 
     return 'Product was successfully removed from the inventory!'
-
-
-if __name__ == '__main__':
-    RESULT = get_data()
-    print(RESULT)
